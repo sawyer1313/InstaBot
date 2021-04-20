@@ -1,0 +1,189 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="contentscript.css">
+</head>
+<div id="igBotInjectedContainer">
+    <div class="modal follow">
+      <div class="modal-overlay modal-toggle follow"></div>
+      <div class="modal-wrapper modal-transition">
+        <div class="modal-header">
+          <h2 class="modal-heading">Generally Settings</h2>
+          <button class="modal-toggle save-follow">Save</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-content">
+            <div class="followOptions">
+
+                <label for="commentArray">Write each Comment, comma separated without whitespaces!</label><textarea id="commentArray" placeholder="Use Maybe: Nice,I like that :),Keep Posting,Waow"></textarea>
+                <div class="useHashtags">
+                    <label for="setHashtagArr">
+                        <input type="radio" name="choosetype" checked="checked" value="setHashtagArr" id="setHashtagArr" />Users from this #Hashtags
+                    </label>
+                    <label for="hashtagArray">
+                        <textarea id="hashtagArray" placeholder="Use Maybe: nature,travel,love,ig,f4f,l4l"></textarea>
+                    </label>
+                </div>
+                <div class="useUsername">
+                    <label for="setUsernameArr">
+                        <input type="radio" name="choosetype" value="setUsernameArr" id="setUsernameArr" />Followers of this Accounts
+                    </label>
+                    <label for="usernameArray">
+                        <textarea id="usernameArray" placeholder="Use Maybe: instagram,cristiano,arianagrande,therock"></textarea>
+                    </label>
+                </div>
+                <div class="useCommenters">
+                    <label for="setCommentersArr">
+                        <input type="radio" name="choosetype" value="setUsernameArr" id="setCommentersArr" />Commenters of this Accounts
+                    </label>
+                    <label for="usernameArray">
+                        <textarea id="usernameCommentersArray" placeholder="Use Maybe: instagram,cristiano,arianagrande,therock"></textarea>
+                    </label>
+                </div>
+
+                <label for="countoflikes"> only if the pic has
+                    <input type="text" id="countoflikes" value="20" />
+                    or more likes
+                </label>
+                <label for="waitTime">Wait
+                    <input type="text" value="25" step="1" min="0" id="textSecondsBetweenActions"></input> seconds between actions
+                </label>
+                <div class="randomwait">
+                    <input type="checkbox" checked="checked" id="cbRandomizeTimeDelay"></input>
+                    <label for="cbRandomizeTimeDelay">Randomize wait time by up to</label>
+                    <input type="text" value="25" step="1" min="0" id="igBotPercentRandomTimeDelay"></input>%
+                </div>
+
+
+                <div class="optionheading">
+                    <input type="checkbox" checked="checked" id="setFollow" /> <label for="setFollow">Follow</label>
+                    <input type="checkbox" checked="checked" id="setLikes" /> <label for="setLikes">Like</label>
+                    <input type="checkbox" checked="checked" id="setComments" /> <label for="setComments">Comment</label>
+                    <input type="checkbox"  id="setVisitStories" /> <label for="setVisitStories">Visit Stories (new Window)</label>
+                    <input type="checkbox" id="setUnfollow" /> <label for="setUnfollow">Unfollow parallel</label>
+                </div>
+                <input type="hidden" value="10" step="1" id="textMinutesAfterSoftRateLimit">
+                <input type="hidden" value="1" step="1" id="textHoursAfterHardRateLimit">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal unfollow">
+      <div class="modal-overlay modal-toggle unfollow"></div>
+      <div class="modal-wrapper modal-transition">
+        <div class="modal-header">
+          <h2 class="modal-heading">Unfollow Settings</h2><button class="modal-toggle save-unfollow">Save</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-content">
+            <div class="unfollowOptions">
+                <input type="checkbox" checked="checked" id="cbDontUnfollowFollowers" /> <label for="cbDontUnfollowFollowers">Do not unfollow people who follow me</label>
+                <input type="checkbox" id="cbUnfollowOld" /><label for="cbUnfollowOld">Unfollow people I began following more than
+                <input type="text" value="30" step="1" id="textUnfollowOld"></input> days ago (even if they follow me)</label>
+                <input type="checkbox" checked="checked" id="cbDontUnfollowFresh" /> <label for="cbDontUnfollowFresh">Do not unfollow people I began following less than
+                <input type="text" value="3" step="1" id="textUnfollowNew"></input> days ago</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-content">
+        <div class="left">
+          <div class="btn-flex">
+            <div class="igBotInjectedButton cicle_row">
+                <div class="hero-header-item" aria-hidden="true">
+                    <div class="hero-logo-circles">
+                        <div class="round-button-circle" id="btnFollowQueue">
+                            <span class="round-button">Execute</span>
+                        </div>
+                        <img class="hero-logo-circle circle1" src="">
+                        <img class="hero-logo-circle circle2" src="">
+                        <img class="hero-logo-circle circle3" src="">
+                        <img class="hero-logo-circle circle4" src="">
+                    </div>
+                </div>
+          </div>
+          <div class="wrapper">
+            <img class="modal-toggle follow settingssvg" src="chrome-extension://cocnommcmpcahahgdfmicacmjehibaob/settingstoolswheel.svg"/>
+          </div>
+          </div>
+        </div>
+
+        <div class="hero-header-item hero-logo middle" aria-hidden="true">
+            <div class="hero-logo-circles">
+                <div class="profilePic"></div>
+                <img class="hero-logo-circle circle1" src="" >
+                <img class="hero-logo-circle circle2" src="" >
+                <img class="hero-logo-circle circle3" src="" >
+                <img class="hero-logo-circle circle4" src="" >
+                <img class="hero-logo-circle circle5" src="" >
+                <img class="hero-logo-circle circle6" src="" >
+                <img class="hero-logo-circle circle7" src="" >
+                <img class="hero-logo-circle circle8" src="" >
+                <img class="hero-logo-circle circle9" src="" >
+                <img class="hero-logo-circle circle10" src="" >
+            </div>
+        </div>
+
+
+        <div class="right">
+
+
+            <!-- WHITELIST BUTTON KREIS
+            <div class="detailedButtons">
+                <div class="igBotInjectedButton" id="btnGetAllUsersFollowers" title="Loads the current page's followers into the queue">Get Current Page's Followers</div>
+                <div class="igBotInjectedButton" id="btnGetAllUsersFollowing" title="Loads accounts which the current page account is following into the queue">Get Current Page's Following
+                </div>
+                <div class="igBotInjectedButton" id="btnAddToWhiteList" title="Add selected accounts to list of accounts never to UNfollow">Add selected to whitelist</div>
+                <div class="igBotInjectedButton" id="btnViewWhiteList" title="">Load whitelist</div>
+                <div class="igBotInjectedButton" id="btnSaveWhiteList" title="Saves the whitelist to local storage and/or disk">Save whitelist</div>
+            </div>
+            -->
+
+            <label for="cbLimitQueueSize" id="lblLimitQueueSize" class="hidden">
+              <input type="checkbox" checked="checked" id="cbLimitQueueSize">Limit Queue to
+              <input type="number" value="1000" min="1" id="txtLimitQueueSize">
+            </label>
+            <div class="igBotInjectedButton cicle_row">
+              <div class="hero-header-item" aria-hidden="true">
+                  <div class="hero-logo-circles">
+                      <div class="round-button-circle" id="btnFollowList">
+                          <span class="round-button">Unfollow</span>
+                      </div>
+                      <img class="hero-logo-circle circle3" src="">
+                      <img class="hero-logo-circle circle4" src="">
+                      <img class="hero-logo-circle circle7" src="">
+                      <img class="hero-logo-circle circle8" src="">
+                  </div>
+              </div>
+            </div>
+            <div class="wrapper">
+              <img class="modal-toggle unfollow settingssvg" src="chrome-extension://cocnommcmpcahahgdfmicacmjehibaob/settingstoolswheel.svg"/>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-content">
+        <div class="bottom-left-content">
+            <textarea id="txtConsole" disabled></textarea>
+        </div>
+        <div class="bottom-right-content">
+            <div class="top-bottom-row">
+                <!--<div class="igButton" id="btnAddToWhiteList" title="Add selected accounts to list of accounts never to UNfollow">Add selected to whitelist</div>-->
+                <div class="igButton is-visible" id="btnViewWhiteList" title="">Load whitelist</div>
+                <div class="igButton is-visible" id="btnSaveWhiteList" title="Saves the whitelist to local storage and/or disk">Save whitelist</div>
+                <div class="igButton is-visible" id="btnRemoveSelected" title="Remove all the selected accounts">Remove selected</div>
+            </div>
+            <div id="igBotMediaQueueContainer"></div>
+            <div id="igBotQueueContainer">
+                <div id="igBotQueueContainerMessage"></div>
+            </div>
+            <div id="divSubscriptionLink"></div>
+            <div id="igBotQueueContainerButtons">
+                <div id="igBotStatusDiv" class="hidden"></div>
+            </div>
+        </div>
+    </div>
+    <div class="igBotInjectedButton" id="btnHide"><span>Close</span></div>
+    <div id="igBotQueueCount" class="hidden"></div>
+      <div id="igBotQueueSelectedCount" class="hidden"></div>
+</div>

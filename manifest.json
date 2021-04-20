@@ -1,0 +1,29 @@
+{
+   "browser_action": {
+      "default_icon": "icon_48.png",
+      "icons": {
+         "128": "icon_48.png",
+         "16": "icon_48.png",
+         "48": "icon_48.png"
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": false,
+      "css": [ "contentscript.css" ],
+      "js": [ "jquery.min.js", "contentscript.js" ],
+      "matches": ["https://www.instagram.com/*"],
+      "run_at": "document_end"
+   } ],
+   "description": "Automation Tool for Instagram Action",
+   "icons": {
+      "128": "icon_48.png",
+      "16": "icon_48.png",
+      "48": "icon_48.png"
+   },
+   "manifest_version": 2,
+   "external_update_url": "https://clients2.google.com/service/update2/crx",
+   "name": "My Instagram Automation Tool",
+   "permissions": ["storage", "tabs"],
+   "version": "3.5.5",
+   "web_accessible_resources": [ "*.*" ]
+}

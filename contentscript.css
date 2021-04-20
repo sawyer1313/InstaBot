@@ -1,0 +1,824 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap');
+
+@keyframes pulse {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.02, 1.02);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+@keyframes hero-logo-circle {
+  100% {
+      transform: rotate(1turn)
+  }
+}
+h3 {
+    font-size: 1.5rem;
+}
+
+a.igBotInjectedLinkWhitelist,
+a.igBotInjectedLinkUnfollow {
+    margin-left: 10px;
+    border: 2px dashed;
+    border-radius: 3px;
+    color: white;
+    padding: 0px 5px;
+    background: goldenrod;
+    border-color: black;
+    border-width: 1px;
+}
+#igBotButtonContainer,
+#igBotInjectedContainer a,#igBotInjectedContainer button,#igBotInjectedContainer div,#igBotInjectedContainer summary,#igBotInjectedContainer textarea,#igBotInjectedContainer input,#igBotInjectedContainer span,#igBotInjectedContainer p{
+    font-family: 'PT Mono', monospace;
+}
+.hidden{
+    display: none!important;
+}
+
+.pulsing {
+    animation: pulse 2s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #dda032;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #dda032;
+}
+#igBotInjectedContainer {
+    margin: 0;
+    font-size: 100%;
+    display: none;
+    position: fixed;
+    min-width: 260px;
+    z-index: 999;
+    display: block;
+    overflow: visible;
+    resize: both;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 3px 2px white;
+    width: 98%;
+    left: 1%;
+    padding: 30px;
+    height: 97%;
+    top: 2%;
+}
+.bottom-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    height: 52%;
+}
+.bottom-left-content {
+    width: 25%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+.bottom-right-content {
+    width: 75%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+.top-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 400px;
+}
+#igBotInjectedContainer h1 {
+    line-height: 24px;
+    font-weight: bold;
+    margin: 20px 0px;
+    text-align: left;
+    font-size: 22px;
+    color: gold;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+#igBotInjectedContainer h2 {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+#igBotInjectedContainer h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: 'PT Mono', monospace;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+#igBotInjectedContainer p {
+    margin-bottom: 10px;
+}
+#instabotIcon {
+    width: 36px;
+    height: 36px;
+    top: 31px;
+    cursor: pointer;
+    display: inline-block;
+    background-size: contain;
+    margin: 0px 0px -28px -43px;
+}
+#btnHide {
+    align-self: flex-end;
+    background: goldenrod;
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.32);
+    width: 100px;
+}
+
+.followOptions input[type="text"],
+.followOptions input[type="number"],
+.unfollowOptions input[type="text"],
+.unfollowOptions input[type="number"] {
+    width: 30px;
+    height: 14px;
+    vertical-align: middle;
+    text-align: center;
+}
+input[type="checkbox"]{
+    margin: 0;
+}
+label[for="setFollow"],
+label[for="setLikes"]{
+    margin-right: 30px;
+}
+
+label#lblLimitQueueSize {
+    text-indent: 0px;
+}
+#btnHide.igBotInjectedButton{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9999999;
+    cursor: pointer;
+    width: auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#igBotInjectedContainer #numberToLike {
+    width: 50px;
+    display: inline;
+    font-size: 12pt;
+    font-weight: bold;
+    background-color: transparent;
+    color: white;
+    margin: 0 4px;
+}
+
+#igBotInjectedContainer #numberToLike::-webkit-inner-spin-button {
+    opacity: 1;
+    height: 2em;
+    width: 1em;
+}
+
+.igBotInjectedButton.disabled,
+#btnStop.disabled {
+    cursor: not-allowed;
+}
+#igBotHeading {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 12px;
+}
+#igBotQueueContainer {
+    overflow: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-grow: 7 0 auto;
+    height: 100%;
+    justify-content: space-between;
+}
+#igBotQueueContainerMessage {
+    width: 100%;
+    text-align: center;
+    color: #bbb;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#igBotQueueContainerMessage a {
+    color: #aaa;
+}
+
+#igBotQueueContainerMessage i {
+    font-style: italic;
+}
+
+#igBotQueueContainerMessage p {
+    text-align: left;
+    font-size: 14px;
+    color: black;
+    line-height: 1;
+    margin: 10px;
+}
+
+#iframePurchase {
+    overflow: auto;
+    overflow-x: hidden;
+    width: 100%;
+    flex-grow: 3;
+    max-height: 70%;
+}
+
+#igBotQueueCount,
+#igBotQueueSelectedCount {
+    padding: 0;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+#igBotQueueCount,
+#igBotQueueSelectedCount,
+#igBotQueueOrderBy,
+#iconFilter {
+    align-self: center;
+}
+
+#txtLimitQueueSize {
+    padding: 5px 1px;
+    width: 48px;
+}
+
+#igBotQueueContainerButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+}
+
+#igBotQueueContainerButtons .igBotInjectedButton {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+#igBotQueueContainerButtons #btnGetLikers {
+  display: none;
+}
+
+.igBotQueueAcct {
+    flex-direction: row;
+    align-items: start;
+    overflow: hidden;
+    position: relative;
+    max-width: 200px;
+    margin: 5px;
+    padding: 0;
+    background: rgba(119, 119, 119, 0.5);
+    border-radius: 5px;
+}
+.igBotQueueAcct label, .igBotQueueAcct img{
+    vertical-align: top;
+}
+a.igBotQueueAcctUserName {
+    color: white!important;
+    font-weight: bold;
+}
+.igBotQueueAcctNameHolder {
+    padding: 5px;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+}
+.igBotQueueAcctCheckbox {
+    display: none;
+}
+.igBotQueueAcctProfilePicture {
+    border-radius: 5px;
+    border: 5px solid white;
+    width: 35px;
+    height: 35px;
+}
+.igBotQueueAcct input[type="checkbox"]:checked + label .igBotQueueAcctProfilePicture {
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(31, 234, 39);
+    border-image: initial;
+    animation: 1.5s ease 0s infinite normal none running pulse;
+    border-radius: 5px;
+}
+.followOptions,
+.unfollowOptions{
+    font-size: 16px;
+    color: wheat;
+    font-weight: bold;
+}
+.followOptions label[for="commentArray"] {
+    padding: 0;
+    text-indent: 0;
+}
+label[for="countoflikes"], label[for="waitTime"], label[for="cbDontUnfollowFollowers"], label[for="cbUnfollowOld"], label[for="cbDontUnfollowFresh"]{
+    margin-bottom: 20px;
+}
+.hero-header-item {
+    display: block;
+    position: relative;
+    margin: auto;
+}
+.hero-logo {
+  //flex: auto;
+  height: 366px;
+  width: 366px;
+  //background-repeat: no-repeat;
+  //background-image: url(chrome-extension://__MSG_@@extension_id__/index-logo.svg),url(chrome-extension://__MSG_@@extension_id__/index-portal-sides.svg);
+  //background-position: center;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.hero-logo-circles {
+  width: 366px;
+  height: 366px;
+  margin: auto;
+  position: relative;
+}
+.hero-logo-circle:nth-child(1) {
+  animation-duration: 30s;
+}
+.hero-logo-circle:nth-child(2) {
+  animation-duration: 40s;
+}
+.hero-logo-circle:nth-child(3) {
+  animation-duration: 50s;
+}
+.hero-logo-circle:nth-child(4) {
+  animation-duration: 60s;
+}
+.hero-logo-circle:nth-child(5) {
+  animation-duration: 70s;
+}
+.hero-logo-circle:nth-child(6) {
+  animation-duration: 80s;
+}
+.hero-logo-circle:nth-child(7) {
+  animation-duration: 90s;
+}
+.hero-logo-circle:nth-child(8) {
+  animation-duration: 100s;
+}
+.hero-logo-circle:nth-child(9) {
+  animation-duration: 110s;
+}
+.hero-logo-circle:nth-child(10) {
+  animation-duration: 120s;
+}
+.hero-logo-circle:nth-child(11) {
+  animation-duration: 120s;
+}
+.hero-logo-circle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: hero-logo-circle 1s linear infinite;
+  will-change: transform;
+}
+.wrapper {
+    position: absolute;
+    bottom: 30px;
+    right: 18%;
+}
+
+.settingssvg{
+  width: 50px;
+  height: auto;
+  cursor: pointer;
+}
+.modal {
+    position: absolute;
+    z-index: 10000; /* 1 */
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+.left, .middle, .right{
+    width: 33.3%;
+}
+.modal.is-visible {
+    visibility: visible;
+}
+
+.modal-overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+
+.modal.is-visible .modal-overlay {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.modal-wrapper {
+  position: absolute;
+  z-index: 9999;
+  background-color: rgba(0, 17, 33, 0.93);
+  width: 50em;
+  height: auto;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 12em;
+  box-shadow: rgba(106, 218, 194, 0.25) 0px 0px 12em;
+}
+
+.modal-transition {
+  transition: all 0.3s 0.12s;
+  transform: translateY(-10%);
+  opacity: 0;
+}
+
+.modal.is-visible .modal-transition {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-header,
+.modal-content {
+  padding: 1em;
+}
+
+.modal-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  color: #aaa;
+  background: none;
+  border: 0;
+}
+
+.modal-close:hover {
+  color: #777;
+}
+
+.modal-heading {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: goldenrod;
+}
+
+.modal-content > *:first-child {
+  margin-top: 0;
+}
+
+.modal-content > *:last-child {
+  margin-bottom: 0;
+}
+button.modal-toggle.save-follow, button.modal-toggle.save-unfollow  {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    border: 0;
+    padding: 5px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    background: goldenrod;
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.32);
+}
+.modal-content input[type="checkbox"] { display: none; }
+
+.modal-content input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  font: 14px/20px 'Open Sans', Arial, sans-serif;
+  color: #ddd;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.modal-content input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+.modal-content input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #6cc0e5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+.top-bottom-row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.igButton{
+    display: none;
+    color: white;
+    background: black;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.igButton.is-visible{
+    display: block;
+}
+
+.modal-content input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+textarea, textarea:disabled {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    font-size: 1em;
+    line-height: 1.4em;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+    margin: 0;
+    width: calc(100% - 20px);
+    border: 0;
+    color: #c7c7c7!important;
+    height: 20px;
+    margin-bottom: 20px;
+}
+textarea:focus{
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+    color: black!important;
+}
+.modal-content input {
+    background: transparent;
+    border: 0;
+    color: gold;
+    font-weight: bold;
+    height: 16px;
+}
+.randomwait{
+    display: flex;
+    flex-direction: row;
+}
+textarea#txtConsole {
+    height: inherit;
+}
+.optionheading {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.round-button-circle {
+    border-radius: 50%;
+    border: 10px solid #cfdcec;
+    overflow: hidden;
+    box-shadow: inset rgba(21, 255, 0, 0.4) 0px 0px 7px 1px;
+    width: 50%;
+    height: 50%;
+    border: 2px solid white;
+    padding: 0;
+    display: flex;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.25);
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+}
+span.round-button{
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    margin: auto;
+    text-transform: uppercase;
+    color: #d4b300;
+}
+.following_count {
+    position: absolute;
+    display: flex;
+    color: white;
+    border: 2px solid white;
+    border-radius: 360px;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    left: -20px;
+    background-color: rgba(255, 255, 255, 0.35);
+    box-shadow: rgb(6, 30, 64) 0px 0px 15px 3px;
+}
+.follow_count {
+    position: absolute;
+    display: flex;
+    color: white;
+    border: 2px solid white;
+    border-radius: 360px;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: -20px;
+    background-color: rgba(255, 255, 255, 0.35);
+    box-shadow: rgb(6, 30, 64) 0px 0px 15px 3px;
+}
+.following_span, .follow_span {
+    margin: auto;
+    top: 0;
+    text-align: center;
+    bottom: 0;
+    line-height: 1.6;
+}
+.trialTime {
+    position: absolute;
+    font-size: 210%;
+    bottom: 20px;
+    right: 0;
+    text-transform: uppercase;
+    color: #a0f2ff;
+    font-weight: bold;
+}
+
+
+/*buy*/
+#info-buy-container {
+    position: fixed;
+    background: white;
+    z-index: 10;
+    width: 40%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 30%;
+    padding: 20px;
+    color: black;
+}
+#info-buy-container a {
+    display: contents;
+    width: auto;
+    font-weight: bold;
+}
+.wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background: #3a3a3a94;
+    top: 0;
+    left: 0;
+}
+.info-headline {
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    font-weight: bold;
+}
+.info-text{
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 992px) {
+    #instabotIcon {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: inline-block;
+      background-size: contain;
+      margin: -3px 10px 0px 0px;
+    }
+    #igBotInjectedContainer {
+      padding: 2%;
+      height: auto;
+      position: absolute;
+    }
+    #igBotButtonContainer {
+      width: 100%;
+      padding-right: 0px;
+      height: auto;
+      margin-top: 30px;
+    }
+    .igBotInjectedButton {
+      font-size: 10px;
+      line-height: 1;
+      padding: 5px;
+    }
+    #igBotLeft{
+      max-width: 100%;
+      padding-left: 0px;
+    }
+    #btnHide.igBotInjectedButton{
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      width: auto;
+    }
+    #txtConsole {
+      min-height: 120px;
+      position: relative;
+    }
+    #igBotInjectedContainer h1{
+      line-height: 1;
+      font-size: 14px;
+      margin: 15px 0 0 0;
+      text-shadow: rgb(0, 0, 0) 1px 1px 0px;
+      padding: 0;
+    }
+    #igBotQueueContainerMessage p {
+      font-size: 12px;
+      font-weight: 100;
+      margin: 10px 0 0 0;
+    }
+    #igBotQueueContainerButtons{
+      margin-top: 30px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+    .igBotQueueAcct{
+      max-width: 30%;
+    }
+    .optionheading{
+      flex-wrap: wrap;
+    }
+    label[for="setFollow"], label[for="setLikes"], label[for="setComments"], label[for="setUnfollow"]{
+      width: 50%;
+      margin: 5px 0 0 0;
+    }
+
+}
